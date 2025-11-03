@@ -1,0 +1,380 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2.3.1.xsd" id="c302_A_Happiness">
+    <notes>
+
+Parameters and setting used to generate this network:
+
+    Data reader:                    cect.SpreadsheetDataReader
+    c302 version:                   0.10.1
+    cect version:                   0.2.5
+    owmeta version:                 0.12.3
+    owmeta_core version:            0.13.5
+    Cells:                          ['NSML', 'NSMR', 'CEPDL', 'CEPDR', 'CEPVL', 'CEPVR', 'ASHL', 'ASHR', 'AWCL', 'AWCR', 'AIBL', 'AIBR', 'RIML', 'RIMR', 'AVAL', 'AVAR']
+    Cell stimulated:                []
+    Connection:                     []
+    Connection numbers overridden:  None
+    Connection numbers scaled:      None
+    Connection polarities override: None
+    Muscles:                        []
+
+    Known BioParameters:
+        BioParameter: chem_exc_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_exc_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_erev = -80mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: chem_inh_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_decay = 10ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_erev = 0mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: elec_syn_rise = 3ms (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: muscle_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_C = 3pF (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_conductance = 0.1nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_leak_reversal = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_reset = -50mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_iaf_thresh = -30mV (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_muscle_elec_syn_gbase = 0nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_exc_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_chem_inh_syn_gbase = 0.01nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: neuron_to_neuron_elec_syn_gbase = 0nS (SRC: BlindGuess, certainty 0.1)
+        BioParameter: unphysiological_offset_current = 0pA (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_del = 0ms (SRC: KnownError, certainty 0)
+        BioParameter: unphysiological_offset_current_dur = 200ms (SRC: KnownError, certainty 0)
+
+</notes>
+    <expTwoSynapse id="neuron_to_neuron_exc_syn" gbase="0.01nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <expTwoSynapse id="neuron_to_neuron_elec_syn" gbase="0nS" erev="0mV" tauDecay="10ms" tauRise="3ms"/>
+    <iafCell id="generic_muscle_iaf_cell" leakReversal="-50mV" thresh="-30mV" reset="-50mV" C="3pF" leakConductance="0.1nS"/>
+    <iafCell id="generic_neuron_iaf_cell" leakReversal="-50mV" thresh="-30mV" reset="-50mV" C="3pF" leakConductance="0.1nS"/>
+    <pulseGenerator id="offset_current" delay="0ms" duration="200ms" amplitude="0pA"/>
+    <pulseGenerator id="stim_NSML_1" delay="0ms" duration="10000ms" amplitude="10pA"/>
+    <pulseGenerator id="stim_NSMR_1" delay="0ms" duration="10000ms" amplitude="10pA"/>
+    <pulseGenerator id="stim_CEPDL_1" delay="0ms" duration="10000ms" amplitude="8pA"/>
+    <pulseGenerator id="stim_CEPDR_1" delay="0ms" duration="10000ms" amplitude="8pA"/>
+    <pulseGenerator id="stim_CEPVL_1" delay="0ms" duration="10000ms" amplitude="8pA"/>
+    <pulseGenerator id="stim_CEPVR_1" delay="0ms" duration="10000ms" amplitude="8pA"/>
+    <pulseGenerator id="stim_ASHL_1" delay="0ms" duration="10000ms" amplitude="6pA"/>
+    <pulseGenerator id="stim_ASHR_1" delay="0ms" duration="10000ms" amplitude="6pA"/>
+    <pulseGenerator id="stim_AWCL_1" delay="0ms" duration="10000ms" amplitude="3pA"/>
+    <pulseGenerator id="stim_AWCR_1" delay="0ms" duration="10000ms" amplitude="3pA"/>
+    <pulseGenerator id="stim_AIBL_1" delay="0ms" duration="10000ms" amplitude="7pA"/>
+    <pulseGenerator id="stim_AIBR_1" delay="0ms" duration="10000ms" amplitude="7pA"/>
+    <pulseGenerator id="stim_RIML_1" delay="0ms" duration="10000ms" amplitude="6pA"/>
+    <pulseGenerator id="stim_RIMR_1" delay="0ms" duration="10000ms" amplitude="6pA"/>
+    <pulseGenerator id="stim_AVAL_1" delay="0ms" duration="10000ms" amplitude="5pA"/>
+    <pulseGenerator id="stim_AVAR_1" delay="0ms" duration="10000ms" amplitude="5pA"/>
+    <network id="c302_A_Happiness">
+        <property tag="recommended_duration_ms" value="10000"/>
+        <property tag="recommended_dt_ms" value="0.05"/>
+        <population id="AIBL" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value="1 0 .4"/>
+            <property tag="type" value="interneuron"/>
+            <property tag="receptor" value="GGR-1; GLR-1; GLR-2; GLR-5; MGL-2; MOD-1; SER-4"/>
+            <property tag="neurotransmitter" value="Glutamate"/>
+            <instance id="0">
+                <location x="2.7" y="-266.199979999999982" z="37.0"/>
+            </instance>
+        </population>
+        <population id="AIBR" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value="1 0 .4"/>
+            <property tag="type" value="interneuron"/>
+            <property tag="receptor" value="GGR-1; GLR-1; GLR-2; GLR-5; MGL-2; MOD-1; SER-1; SER-4"/>
+            <property tag="neurotransmitter" value=""/>
+            <instance id="0">
+                <location x="-6.8999996" y="-266.199979999999982" z="37.0"/>
+            </instance>
+        </population>
+        <population id="ASHL" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="DCAR-1; DOP-4; NPR-1; NPR-2; NTR-1; NTR-2; OCR-2; OCTR-1; OSM-9; SER-3; SER-5; SRA-6; SRB-6; TMC-1; TRPA-1; TYRA-2; UNC-8"/>
+            <property tag="neurotransmitter" value="Glutamate"/>
+            <instance id="0">
+                <location x="5.55" y="-265.625" z="41.0"/>
+            </instance>
+        </population>
+        <population id="ASHR" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="DCAR-1; DOP-4; NPR-1; NPR-2; NTR-1; NTR-2; OCR-2; OCTR-1; OSM-9; SER-3; SER-5; SRA-6; SRB-6; TMC-1; TRPA-1; TYRA-2; UNC-8"/>
+            <property tag="neurotransmitter" value="Glutamate"/>
+            <instance id="0">
+                <location x="-9.800000000000001" y="-265.625" z="41.0"/>
+            </instance>
+        </population>
+        <population id="AVAL" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value="1 0 .4"/>
+            <property tag="type" value="interneuron"/>
+            <property tag="receptor" value="GGR-3; GLR-1; GLR-2; GLR-4; GLR-5; NMR-1; NMR-2; NPR-4; UNC-8"/>
+            <property tag="neurotransmitter" value=""/>
+            <property tag="OpenWormBackerAssignedName" value="JUD"/>
+            <instance id="0">
+                <location x="-0.55" y="-271.5" z="37.982999999999997"/>
+            </instance>
+        </population>
+        <population id="AVAR" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value="1 0 .4"/>
+            <property tag="type" value="interneuron"/>
+            <property tag="receptor" value="GGR-3; GLR-1; GLR-2; GLR-4; GLR-5; NMR-1; NMR-2; NPR-4; UNC-8"/>
+            <property tag="neurotransmitter" value=""/>
+            <instance id="0">
+                <location x="-3.5" y="-271.5" z="37.982999999999997"/>
+            </instance>
+        </population>
+        <population id="AWCL" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="DAF-11; OSM-9; STR-2; TYRA-3"/>
+            <property tag="neurotransmitter" value="Glutamate"/>
+            <instance id="0">
+                <location x="3.8" y="-267.949999999999989" z="38.950000000000003"/>
+            </instance>
+        </population>
+        <population id="AWCR" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="DAF-11; OSM-9; STR-2; TYRA-3"/>
+            <property tag="neurotransmitter" value="Glutamate"/>
+            <instance id="0">
+                <location x="-8.1" y="-267.949999999999989" z="38.950000000000003"/>
+            </instance>
+        </population>
+        <population id="CEPDL" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="DOP-2; OCTR-1; TYRA-3"/>
+            <property tag="neurotransmitter" value="Dopamine"/>
+            <property tag="OpenWormBackerAssignedName" value="Tauber"/>
+            <instance id="0">
+                <location x="1.35" y="-275.025019999999984" z="54.075004999999997"/>
+            </instance>
+        </population>
+        <population id="CEPDR" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="DOP-2; OCTR-1; TYRA-3"/>
+            <property tag="neurotransmitter" value="Dopamine"/>
+            <property tag="OpenWormBackerAssignedName" value="foxx"/>
+            <instance id="0">
+                <location x="-5.625" y="-275.025019999999984" z="54.075004999999997"/>
+            </instance>
+        </population>
+        <population id="CEPVL" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="DOP-2; OCTR-1; TYRA-3"/>
+            <property tag="neurotransmitter" value="Dopamine"/>
+            <property tag="OpenWormBackerAssignedName" value="Gernot Weiser"/>
+            <instance id="0">
+                <location x="0.70000005" y="-277.125" z="39.924999999999997"/>
+            </instance>
+        </population>
+        <population id="CEPVR" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value="1 .2 1"/>
+            <property tag="type" value="sensory"/>
+            <property tag="receptor" value="DOP-2; OCTR-1; TYRA-3"/>
+            <property tag="neurotransmitter" value="Dopamine"/>
+            <property tag="OpenWormBackerAssignedName" value="The Swarm"/>
+            <instance id="0">
+                <location x="-4.95" y="-277.125" z="39.924999999999997"/>
+            </instance>
+        </population>
+        <population id="NSML" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value=".5 .4 1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="AEX-2; DOP-3; GLR-7; GLR-8; SER-2; SER-4; TYRA-2"/>
+            <property tag="neurotransmitter" value="Serotonin"/>
+            <instance id="0">
+                <location x="2.6000001" y="-292.25" z="51.799999999999997"/>
+            </instance>
+        </population>
+        <population id="NSMR" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value=".5 .4 1"/>
+            <property tag="type" value="motor; sensory"/>
+            <property tag="receptor" value="AEX-2; DOP-3; GLR-7; GLR-8; SER-2; SER-4; TYRA-2"/>
+            <property tag="neurotransmitter" value="Serotonin"/>
+            <instance id="0">
+                <location x="-6.3500004" y="-292.25" z="51.799999999999997"/>
+            </instance>
+        </population>
+        <population id="RIML" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value=".5 .4 1"/>
+            <property tag="type" value="interneuron; motor"/>
+            <property tag="receptor" value="DOP-1; MOD-1; SER-4"/>
+            <property tag="neurotransmitter" value="Acetylcholine; Glutamate; Tyramine"/>
+            <instance id="0">
+                <location x="3.5" y="-260.899999999999977" z="39.0"/>
+            </instance>
+        </population>
+        <population id="RIMR" component="generic_neuron_iaf_cell" size="1" type="populationList">
+            <property tag="color" value=".5 .4 1"/>
+            <property tag="type" value="interneuron; motor"/>
+            <property tag="receptor" value="DOP-1; MOD-1; SER-4"/>
+            <property tag="neurotransmitter" value="Acetylcholine; Glutamate; Tyramine"/>
+            <instance id="0">
+                <location x="-7.75" y="-260.899999999999977" z="39.0"/>
+            </instance>
+        </population>
+        <projection id="NC_AIBL_AVAL_Glutamate" presynapticPopulation="AIBL" postsynapticPopulation="AVAL" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AIBL/0/generic_neuron_iaf_cell" postCellId="../AVAL/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AIBL_RIML_Glutamate" presynapticPopulation="AIBL" postsynapticPopulation="RIML" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AIBL/0/generic_neuron_iaf_cell" postCellId="../RIML/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AIBL_RIMR_Generic_GJ" presynapticPopulation="AIBL" postsynapticPopulation="RIMR" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../AIBL/0/generic_neuron_iaf_cell" postCellId="../RIMR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AIBL_RIMR_Glutamate" presynapticPopulation="AIBL" postsynapticPopulation="RIMR" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AIBL/0/generic_neuron_iaf_cell" postCellId="../RIMR/0/generic_neuron_iaf_cell" weight="13.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AIBR_AVAR_Glutamate" presynapticPopulation="AIBR" postsynapticPopulation="AVAR" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AIBR/0/generic_neuron_iaf_cell" postCellId="../AVAR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AIBR_RIML_Generic_GJ" presynapticPopulation="AIBR" postsynapticPopulation="RIML" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../AIBR/0/generic_neuron_iaf_cell" postCellId="../RIML/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AIBR_RIML_Glutamate" presynapticPopulation="AIBR" postsynapticPopulation="RIML" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AIBR/0/generic_neuron_iaf_cell" postCellId="../RIML/0/generic_neuron_iaf_cell" weight="16.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AIBR_RIMR_Glutamate" presynapticPopulation="AIBR" postsynapticPopulation="RIMR" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AIBR/0/generic_neuron_iaf_cell" postCellId="../RIMR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_ASHL_AIBL_Glutamate" presynapticPopulation="ASHL" postsynapticPopulation="AIBL" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../ASHL/0/generic_neuron_iaf_cell" postCellId="../AIBL/0/generic_neuron_iaf_cell" weight="5.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_ASHL_ASHR_Generic_GJ" presynapticPopulation="ASHL" postsynapticPopulation="ASHR" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../ASHL/0/generic_neuron_iaf_cell" postCellId="../ASHR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_ASHL_AVAL_Glutamate" presynapticPopulation="ASHL" postsynapticPopulation="AVAL" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../ASHL/0/generic_neuron_iaf_cell" postCellId="../AVAL/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_ASHL_RIML_Glutamate" presynapticPopulation="ASHL" postsynapticPopulation="RIML" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../ASHL/0/generic_neuron_iaf_cell" postCellId="../RIML/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_ASHR_AIBR_Glutamate" presynapticPopulation="ASHR" postsynapticPopulation="AIBR" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../ASHR/0/generic_neuron_iaf_cell" postCellId="../AIBR/0/generic_neuron_iaf_cell" weight="3.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_ASHR_ASHL_Generic_GJ" presynapticPopulation="ASHR" postsynapticPopulation="ASHL" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../ASHR/0/generic_neuron_iaf_cell" postCellId="../ASHL/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_ASHR_AVAR_Glutamate" presynapticPopulation="ASHR" postsynapticPopulation="AVAR" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../ASHR/0/generic_neuron_iaf_cell" postCellId="../AVAR/0/generic_neuron_iaf_cell" weight="5.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AVAL_AVAR_FMRFamide" presynapticPopulation="AVAL" postsynapticPopulation="AVAR" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AVAL/0/generic_neuron_iaf_cell" postCellId="../AVAR/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AVAL_AVAR_Generic_GJ" presynapticPopulation="AVAL" postsynapticPopulation="AVAR" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../AVAL/0/generic_neuron_iaf_cell" postCellId="../AVAR/0/generic_neuron_iaf_cell" weight="5.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AVAL_RIMR_Generic_GJ" presynapticPopulation="AVAL" postsynapticPopulation="RIMR" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../AVAL/0/generic_neuron_iaf_cell" postCellId="../RIMR/0/generic_neuron_iaf_cell" weight="3.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AVAR_AVAL_FMRFamide" presynapticPopulation="AVAR" postsynapticPopulation="AVAL" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AVAR/0/generic_neuron_iaf_cell" postCellId="../AVAL/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AVAR_AVAL_Generic_GJ" presynapticPopulation="AVAR" postsynapticPopulation="AVAL" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../AVAR/0/generic_neuron_iaf_cell" postCellId="../AVAL/0/generic_neuron_iaf_cell" weight="5.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AVAR_RIML_Generic_GJ" presynapticPopulation="AVAR" postsynapticPopulation="RIML" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../AVAR/0/generic_neuron_iaf_cell" postCellId="../RIML/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AVAR_RIMR_Generic_GJ" presynapticPopulation="AVAR" postsynapticPopulation="RIMR" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../AVAR/0/generic_neuron_iaf_cell" postCellId="../RIMR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AWCL_AIBL_Glutamate" presynapticPopulation="AWCL" postsynapticPopulation="AIBL" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AWCL/0/generic_neuron_iaf_cell" postCellId="../AIBL/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AWCL_AIBR_Glutamate" presynapticPopulation="AWCL" postsynapticPopulation="AIBR" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AWCL/0/generic_neuron_iaf_cell" postCellId="../AIBR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AWCL_AVAL_Glutamate" presynapticPopulation="AWCL" postsynapticPopulation="AVAL" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AWCL/0/generic_neuron_iaf_cell" postCellId="../AVAL/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AWCL_AWCR_Glutamate" presynapticPopulation="AWCL" postsynapticPopulation="AWCR" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AWCL/0/generic_neuron_iaf_cell" postCellId="../AWCR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AWCR_AIBR_Glutamate" presynapticPopulation="AWCR" postsynapticPopulation="AIBR" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AWCR/0/generic_neuron_iaf_cell" postCellId="../AIBR/0/generic_neuron_iaf_cell" weight="4.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_AWCR_AWCL_Glutamate" presynapticPopulation="AWCR" postsynapticPopulation="AWCL" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../AWCR/0/generic_neuron_iaf_cell" postCellId="../AWCL/0/generic_neuron_iaf_cell" weight="5.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_RIML_AIBR_Generic_GJ" presynapticPopulation="RIML" postsynapticPopulation="AIBR" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../RIML/0/generic_neuron_iaf_cell" postCellId="../AIBR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_RIML_AVAL_Acetylcholine_Tyramine" presynapticPopulation="RIML" postsynapticPopulation="AVAL" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../RIML/0/generic_neuron_iaf_cell" postCellId="../AVAL/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_RIML_AVAR_Generic_GJ" presynapticPopulation="RIML" postsynapticPopulation="AVAR" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../RIML/0/generic_neuron_iaf_cell" postCellId="../AVAR/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_RIMR_AIBL_Generic_GJ" presynapticPopulation="RIMR" postsynapticPopulation="AIBL" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../RIMR/0/generic_neuron_iaf_cell" postCellId="../AIBL/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_RIMR_AIBL_Acetylcholine_Tyramine" presynapticPopulation="RIMR" postsynapticPopulation="AIBL" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../RIMR/0/generic_neuron_iaf_cell" postCellId="../AIBL/0/generic_neuron_iaf_cell" weight="4.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_RIMR_AVAL_Acetylcholine_Tyramine" presynapticPopulation="RIMR" postsynapticPopulation="AVAL" synapse="neuron_to_neuron_exc_syn">
+            <connectionWD id="0" preCellId="../RIMR/0/generic_neuron_iaf_cell" postCellId="../AVAL/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_RIMR_AVAL_Generic_GJ" presynapticPopulation="RIMR" postsynapticPopulation="AVAL" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../RIMR/0/generic_neuron_iaf_cell" postCellId="../AVAL/0/generic_neuron_iaf_cell" weight="3.0" delay="0ms"/>
+        </projection>
+        <projection id="NC_RIMR_AVAR_Generic_GJ" presynapticPopulation="RIMR" postsynapticPopulation="AVAR" synapse="neuron_to_neuron_elec_syn">
+            <connectionWD id="0" preCellId="../RIMR/0/generic_neuron_iaf_cell" postCellId="../AVAR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
+        </projection>
+        <inputList id="Input_NSML_stim_NSML_1" population="NSML" component="stim_NSML_1">
+            <input id="0" target="../NSML/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_NSMR_stim_NSMR_1" population="NSMR" component="stim_NSMR_1">
+            <input id="0" target="../NSMR/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_CEPDL_stim_CEPDL_1" population="CEPDL" component="stim_CEPDL_1">
+            <input id="0" target="../CEPDL/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_CEPDR_stim_CEPDR_1" population="CEPDR" component="stim_CEPDR_1">
+            <input id="0" target="../CEPDR/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_CEPVL_stim_CEPVL_1" population="CEPVL" component="stim_CEPVL_1">
+            <input id="0" target="../CEPVL/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_CEPVR_stim_CEPVR_1" population="CEPVR" component="stim_CEPVR_1">
+            <input id="0" target="../CEPVR/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_ASHL_stim_ASHL_1" population="ASHL" component="stim_ASHL_1">
+            <input id="0" target="../ASHL/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_ASHR_stim_ASHR_1" population="ASHR" component="stim_ASHR_1">
+            <input id="0" target="../ASHR/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AWCL_stim_AWCL_1" population="AWCL" component="stim_AWCL_1">
+            <input id="0" target="../AWCL/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AWCR_stim_AWCR_1" population="AWCR" component="stim_AWCR_1">
+            <input id="0" target="../AWCR/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AIBL_stim_AIBL_1" population="AIBL" component="stim_AIBL_1">
+            <input id="0" target="../AIBL/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AIBR_stim_AIBR_1" population="AIBR" component="stim_AIBR_1">
+            <input id="0" target="../AIBR/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_RIML_stim_RIML_1" population="RIML" component="stim_RIML_1">
+            <input id="0" target="../RIML/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_RIMR_stim_RIMR_1" population="RIMR" component="stim_RIMR_1">
+            <input id="0" target="../RIMR/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AVAL_stim_AVAL_1" population="AVAL" component="stim_AVAL_1">
+            <input id="0" target="../AVAL/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+        <inputList id="Input_AVAR_stim_AVAR_1" population="AVAR" component="stim_AVAR_1">
+            <input id="0" target="../AVAR/0/generic_neuron_iaf_cell" destination="synapses"/>
+        </inputList>
+    </network>
+</neuroml>
