@@ -25,8 +25,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--timeout",
         type=int,
-        default=60,
-        help="Per-run timeout in seconds (default: 60)",
+        default=30,
+        help="Per-run timeout in seconds (default: 30)",
     )
     parser.add_argument(
         "--gui",
@@ -50,15 +50,16 @@ class Runner:
     def __init__(self, root_dir: Path, param_set: str, pain_delay_ms: int, backend: str, timeout_s: int, gui: bool, fullscreen: bool, popup: bool):
         self.root_dir = root_dir
         self.examples_dir = root_dir / "examples"
-        self.gen_script = root_dir / "eternalpain" / "c302_EternalPainWithMotors.py"
-        self.lems_file = f"LEMS_c302_{param_set}_EternalPainWithMotors.xml"
-        self.dat_file = f"c302_{param_set}_EternalPainWithMotors.dat"
+        self.gen_script = root_dir / "eternalpain" / "c302_EternalPain.py"
+        self.lems_file = f"LEMS_c302_{param_set}_EternalPain.xml"
+        self.dat_file = f"c302_{param_set}_EternalPain.dat"
         self.param_set = param_set
         self.pain_delay_ms = pain_delay_ms
         self.backend = backend
         self.timeout_s = timeout_s
 
-        self.show_graph = os.environ.get("SHOW_GRAPH", "1") == "1"
+        # Default to not running extra matplotlib analysis; we use pynml's GUI instead
+        self.show_graph = os.environ.get("SHOW_GRAPH", "0") == "1"
         self.open_graph = os.environ.get("OPEN", "0") == "1"
 
         self.current_pgid = None

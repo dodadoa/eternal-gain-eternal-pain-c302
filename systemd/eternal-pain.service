@@ -1,0 +1,29 @@
+[Unit]
+Description=Eternal Pain Neuron Demo (pynml GUI)
+After=network-online.target graphical.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+Environment=VENV_DIR=/home/pi/.venvs/c302
+Environment=ENABLE_GUI=1
+Environment=FULLSCREEN=1
+Environment=POPUP=1
+Environment=PARAM_SET=A
+Environment=PAIN_DELAY_MS=2000
+Environment=BACKEND=jnml
+Environment=TIMEOUT_S=30
+WorkingDirectory=/home/pi/eternal-gain-eternal-pain/c302
+ExecStart=/bin/bash -lc '/home/pi/eternal-gain-eternal-pain/c302/autostart_eternal_pain.sh'
+Restart=always
+RestartSec=5
+
+# Improve chance the window appears on desktop session
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+
+[Install]
+WantedBy=graphical.target
+
+

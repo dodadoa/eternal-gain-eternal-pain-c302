@@ -1,0 +1,25 @@
+[Unit]
+Description=Eternal Happiness Neuron Demo (pynml GUI)
+After=network-online.target graphical.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+Environment=VENV_DIR=/home/pi/.venvs/c302
+Environment=PARAM_SET=A
+Environment=REWARD_DELAY_MS=0
+Environment=BACKEND=jnml
+Environment=TIMEOUT_S=30
+WorkingDirectory=/home/pi/eternal-gain-eternal-pain/c302
+ExecStart=/bin/bash -lc '/home/pi/eternal-gain-eternal-pain/c302/autostart_eternal_happy.sh'
+Restart=always
+RestartSec=5
+
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+
+[Install]
+WantedBy=graphical.target
+
+
