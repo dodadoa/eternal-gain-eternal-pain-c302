@@ -1,11 +1,12 @@
-# Model of pain induction in C. elegans worm
+# Model of pain induction in C. elegans worm with motor neuron monitoring
 # This simulation induces persistent pain by stimulating nociceptive neurons (ASH)
-# for an extended duration
+# after a delay to capture motor neuron activity before and after pain injection
+# Motor neurons included: VB (forward), VD/DD (backward/reversal)
 
 # To run:
-#          python c302_EternalPain.py A   (uses parameters_A, requires jNeuroML to run)
+#          python c302_EternalPainWithMotors.py A   (uses parameters_A, requires jNeuroML to run)
 # or
-#          python c302_EternalPain.py B   (uses parameters_B, requires jNeuroML built from the
+#          python c302_EternalPainWithMotors.py B   (uses parameters_B, requires jNeuroML built from the
 #                                         experimental branches to run: 'python getNeuroML experimental'
 #                                         see https://github.com/NeuroML/jNeuroML)
 
@@ -27,6 +28,7 @@ def setup(
     param_overrides={},
     config_param_overrides={},
     verbose=True,
+    pain_start_delay=2000,  # Delay before pain injection (ms) - allows baseline measurement
 ):
     ParameterisedModel = getattr(
         importlib.import_module("c302.parameters_%s" % parameter_set),
@@ -35,14 +37,24 @@ def setup(
     params = ParameterisedModel()
 
     # Include the neural circuit for motivational trade-offs as described in Key et al. (2023)
-    # Based on the paper: ASH/AWC-AIB-RIM-AVA circuit is necessary and sufficient for
-    # motivational trade-off behaviours involving aversive stimuli
     # - ASH: Primary nociceptive neurons that detect harmful stimuli
     # - AWC: Modulatory chemosensory neurons (tonically active, prolong reversals)
     # - AIB: Layer 1 interneurons that integrate ASH and AWC inputs
     # - RIM: Layer 2 interneurons (modulatory, secrete tyramine)
     # - AVA: Command interneurons (output to motor neurons for reversals)
-    cells = ["ASHL", "ASHR", "AWCL", "AWCR", "AIBL", "AIBR", "RIML", "RIMR", "AVAL", "AVAR"]
+    
+    # Add motor neurons to monitor behavioral output:
+    # - VB: Forward locomotion motor neurons
+    # - VD: Backward/reversal motor neurons (GABAergic)
+    # - DD: Backward/reversal motor neurons (GABAergic)
+    # - DB: Additional forward motor neurons
+    pain_circuit_cells = ["ASHL", "ASHR", "AWCL", "AWCR", "AIBL", "AIBR", "RIML", "RIMR", "AVAL", "AVAR"]
+    motor_cells = ["VB1", "VB2", "VB3", "VB4", "VB5",  # Forward motor neurons
+                   "VD1", "VD2", "VD3", "VD4", "VD5",  # Backward/reversal motor neurons
+                   "DD1", "DD2", "DD3", "DD4", "DD5",  # Backward/reversal motor neurons (GABAergic)
+                   "DB1", "DB2", "DB3", "DB4", "DB5"]  # Additional forward motor neurons
+    
+    cells = pain_circuit_cells + motor_cells
     cells_to_stimulate = []
 
     reference = "c302_%s_EternalPain" % parameter_set
@@ -64,9 +76,9 @@ def setup(
         )
 
     # Induce pain by stimulating ASH nociceptive neurons
-    # Start pain stimulation at the very beginning and continue for the full simulation duration
-    pain_start = "0ms"  # Start pain stimulation at the very beginning
-    pain_duration = "10000ms"  # Continue pain for the full simulation duration (10 seconds)
+    # Start pain stimulation AFTER a delay to capture baseline motor activity
+    pain_start = "%sms" % pain_start_delay  # Start pain stimulation after delay
+    pain_duration = "%sms" % (duration - pain_start_delay)  # Continue pain for remainder of simulation
     pain_amplitude = "15pA"  # Strong pain stimulus (increased amplitude for more intense pain)
 
     # Only add pain inputs if network has been generated
@@ -108,6 +120,7 @@ def setup(
         )  # Write over network file written above...
 
         c302.print_("(Re)written network file to: " + nml_file)
+        c302.print_("=" * 70)
         c302.print_("Pain stimulation applied to ASH/AWC-AIB-RIM-AVA circuit:")
         c302.print_("  - ASHL/ASHR (primary nociceptive): %s for %s starting at %s" 
                     % (pain_amplitude, pain_duration, pain_start))
@@ -119,14 +132,26 @@ def setup(
                     % (pain_duration, pain_start))
         c302.print_("  - AVAL/AVAR (command interneurons): 8pA for %s starting at %s" 
                     % (pain_duration, pain_start))
-        c302.print_("This circuit is necessary and sufficient for motivational trade-offs (Key et al. 2023).")
-        c302.print_("The worm will experience continuous aversive stimulation throughout the simulation.")
+        c302.print_("=" * 70)
+        c302.print_("Motor neurons included for monitoring:")
+        c302.print_("  - Forward locomotion: VB1-VB5, DB1-DB5")
+        c302.print_("  - Backward/reversal: VD1-VD5, DD1-DD5")
+        c302.print_("=" * 70)
+        c302.print_("TIMELINE:")
+        c302.print_("  - 0ms to %sms: BASELINE (no pain - observe normal motor activity)" % pain_start_delay)
+        c302.print_("  - %sms: PAIN INJECTION BEGINS" % pain_start_delay)
+        c302.print_("  - %sms to %sms: PAIN PERIOD (observe aggressive/reversal behavior)" 
+                    % (pain_start_delay, duration))
+        c302.print_("=" * 70)
+        c302.print_("Motor neuron activity will be output in the generated LEMS file.")
+        c302.print_("Look for activity data in: %s/%s.activity.dat" % (target_directory, reference))
 
     return cells, cells_to_stimulate, params, [], nml_doc
 
 
 if __name__ == "__main__":
     parameter_set = sys.argv[1] if len(sys.argv) == 2 else "A"
+    pain_delay = int(sys.argv[2]) if len(sys.argv) >= 3 else 2000  # Default 2000ms delay
 
-    setup(parameter_set, generate=True)
+    setup(parameter_set, generate=True, pain_start_delay=pain_delay)
 
