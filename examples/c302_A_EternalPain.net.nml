@@ -8,7 +8,7 @@ Parameters and setting used to generate this network:
     cect version:                   0.2.5
     owmeta version:                 0.12.3
     owmeta_core version:            0.13.5
-    Cells:                          ['ASHL', 'ASHR', 'AWCL', 'AWCR', 'AIBL', 'AIBR', 'RIML', 'RIMR', 'AVAL', 'AVAR', 'VB1', 'VB2', 'VB3', 'VB4', 'VB5', 'VD1', 'VD2', 'VD3', 'VD4', 'VD5', 'DD1', 'DD2', 'DD3', 'DD4', 'DD5', 'DB1', 'DB2', 'DB3', 'DB4', 'DB5']
+    Cells:                          ['ASHL', 'ASHR', 'AWCL', 'AWCR', 'AIBL', 'AIBR', 'RIML', 'RIMR', 'AVAL', 'AVAR', 'VB2', 'VB3', 'VD2', 'VD3', 'DD2', 'DD3', 'DB2', 'DB3']
     Cell stimulated:                []
     Connection:                     []
     Connection numbers overridden:  None
@@ -139,15 +139,6 @@ Parameters and setting used to generate this network:
                 <location x="-8.1" y="-267.949999999999989" z="38.950000000000003"/>
             </instance>
         </population>
-        <population id="DB1" component="generic_neuron_iaf_cell" size="1" type="populationList">
-            <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
-            <property tag="neurotransmitter" value="Acetylcholine"/>
-            <instance id="0">
-                <location x="-1.9" y="-230.349989999999991" z="6.85"/>
-            </instance>
-        </population>
         <population id="DB2" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
@@ -164,34 +155,6 @@ Parameters and setting used to generate this network:
             <property tag="neurotransmitter" value="Acetylcholine"/>
             <instance id="0">
                 <location x="-1.85" y="-195.275000000000006" z="-18.524999999999999"/>
-            </instance>
-        </population>
-        <population id="DB4" component="generic_neuron_iaf_cell" size="1" type="populationList">
-            <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
-            <property tag="neurotransmitter" value="Acetylcholine"/>
-            <instance id="0">
-                <location x="-1.8750001" y="-96.275000000000006" z="-64.650000000000006"/>
-            </instance>
-        </population>
-        <population id="DB5" component="generic_neuron_iaf_cell" size="1" type="populationList">
-            <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="motor"/>
-            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
-            <property tag="neurotransmitter" value="Acetylcholine"/>
-            <instance id="0">
-                <location x="-4.05" y="35.25" z="-30.449999999999999"/>
-            </instance>
-        </population>
-        <population id="DD1" component="generic_neuron_iaf_cell" size="1" type="populationList">
-            <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
-            <property tag="neurotransmitter" value="GABA"/>
-            <property tag="OpenWormBackerAssignedName" value="Stanislav Petrov"/>
-            <instance id="0">
-                <location x="-0.9" y="-231.949999999999989" z="6.85"/>
             </instance>
         </population>
         <population id="DD2" component="generic_neuron_iaf_cell" size="1" type="populationList">
@@ -213,24 +176,6 @@ Parameters and setting used to generate this network:
                 <location x="-1.9" y="-28.600002" z="-60.524999999999999"/>
             </instance>
         </population>
-        <population id="DD4" component="generic_neuron_iaf_cell" size="1" type="populationList">
-            <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
-            <property tag="neurotransmitter" value="GABA"/>
-            <instance id="0">
-                <location x="-1.8750001" y="122.899994000000007" z="4.5499997"/>
-            </instance>
-        </population>
-        <population id="DD5" component="generic_neuron_iaf_cell" size="1" type="populationList">
-            <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; MOD-1; NPR-1"/>
-            <property tag="neurotransmitter" value="GABA"/>
-            <instance id="0">
-                <location x="-1.8750001" y="234.050019999999989" z="-15.775"/>
-            </instance>
-        </population>
         <population id="RIML" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="interneuron; motor"/>
@@ -247,16 +192,6 @@ Parameters and setting used to generate this network:
             <property tag="neurotransmitter" value="Acetylcholine; Glutamate; Tyramine"/>
             <instance id="0">
                 <location x="-7.75" y="-260.899999999999977" z="39.0"/>
-            </instance>
-        </population>
-        <population id="VB1" component="generic_neuron_iaf_cell" size="1" type="populationList">
-            <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="motor; sensory"/>
-            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
-            <property tag="neurotransmitter" value="Acetylcholine"/>
-            <property tag="OpenWormBackerAssignedName" value="NoTex.ch"/>
-            <instance id="0">
-                <location x="-1.55" y="-246.449999999999989" z="16.399999999999999"/>
             </instance>
         </population>
         <population id="VB2" component="generic_neuron_iaf_cell" size="1" type="populationList">
@@ -279,35 +214,6 @@ Parameters and setting used to generate this network:
                 <location x="-1.85" y="-210.224999999999994" z="-8.725"/>
             </instance>
         </population>
-        <population id="VB4" component="generic_neuron_iaf_cell" size="1" type="populationList">
-            <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="motor; sensory"/>
-            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
-            <property tag="neurotransmitter" value="Acetylcholine"/>
-            <property tag="OpenWormBackerAssignedName" value="Worm"/>
-            <instance id="0">
-                <location x="-2.0" y="-173.25" z="-33.5"/>
-            </instance>
-        </population>
-        <population id="VB5" component="generic_neuron_iaf_cell" size="1" type="populationList">
-            <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="motor; sensory"/>
-            <property tag="receptor" value="CKR-2; DOP-1; DOP-3; NPR-3"/>
-            <property tag="neurotransmitter" value="Acetylcholine"/>
-            <instance id="0">
-                <location x="-1.85" y="-109.549999999999997" z="-62.149999999999999"/>
-            </instance>
-        </population>
-        <population id="VD1" component="generic_neuron_iaf_cell" size="1" type="populationList">
-            <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
-            <property tag="neurotransmitter" value="GABA"/>
-            <property tag="OpenWormBackerAssignedName" value="Ackley Lab"/>
-            <instance id="0">
-                <location x="-0.70000005" y="-228.599999999999994" z="4.05"/>
-            </instance>
-        </population>
         <population id="VD2" component="generic_neuron_iaf_cell" size="1" type="populationList">
             <property tag="color" value=".5 .4 1"/>
             <property tag="type" value="motor"/>
@@ -326,24 +232,6 @@ Parameters and setting used to generate this network:
                 <location x="-0.8" y="-188.099999999999994" z="-23.449999999999999"/>
             </instance>
         </population>
-        <population id="VD4" component="generic_neuron_iaf_cell" size="1" type="populationList">
-            <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
-            <property tag="neurotransmitter" value="GABA"/>
-            <instance id="0">
-                <location x="-0.8" y="-137.199999999999989" z="-52.700000000000003"/>
-            </instance>
-        </population>
-        <population id="VD5" component="generic_neuron_iaf_cell" size="1" type="populationList">
-            <property tag="color" value=".5 .4 1"/>
-            <property tag="type" value="motor"/>
-            <property tag="receptor" value="DOP-3; MOD-1; NPR-1; SER-2"/>
-            <property tag="neurotransmitter" value="GABA"/>
-            <instance id="0">
-                <location x="-0.75" y="-68.299999999999997" z="-66.75"/>
-            </instance>
-        </population>
         <projection id="NC_AIBL_AVAL_Glutamate" presynapticPopulation="AIBL" postsynapticPopulation="AVAL" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../AIBL/0/generic_neuron_iaf_cell" postCellId="../AVAL/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
         </projection>
@@ -359,9 +247,6 @@ Parameters and setting used to generate this network:
         <projection id="NC_AIBR_AVAR_Glutamate" presynapticPopulation="AIBR" postsynapticPopulation="AVAR" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../AIBR/0/generic_neuron_iaf_cell" postCellId="../AVAR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
         </projection>
-        <projection id="NC_AIBR_DB1_Generic_GJ" presynapticPopulation="AIBR" postsynapticPopulation="DB1" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../AIBR/0/generic_neuron_iaf_cell" postCellId="../DB1/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
         <projection id="NC_AIBR_RIML_Generic_GJ" presynapticPopulation="AIBR" postsynapticPopulation="RIML" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../AIBR/0/generic_neuron_iaf_cell" postCellId="../RIML/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
         </projection>
@@ -370,9 +255,6 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_AIBR_RIMR_Glutamate" presynapticPopulation="AIBR" postsynapticPopulation="RIMR" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../AIBR/0/generic_neuron_iaf_cell" postCellId="../RIMR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_AIBR_VB1_Glutamate" presynapticPopulation="AIBR" postsynapticPopulation="VB1" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../AIBR/0/generic_neuron_iaf_cell" postCellId="../VB1/0/generic_neuron_iaf_cell" weight="3.0" delay="0ms"/>
         </projection>
         <projection id="NC_ASHL_AIBL_Glutamate" presynapticPopulation="ASHL" postsynapticPopulation="AIBL" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../ASHL/0/generic_neuron_iaf_cell" postCellId="../AIBL/0/generic_neuron_iaf_cell" weight="5.0" delay="0ms"/>
@@ -401,9 +283,6 @@ Parameters and setting used to generate this network:
         <projection id="NC_AVAL_AVAR_Generic_GJ" presynapticPopulation="AVAL" postsynapticPopulation="AVAR" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../AVAL/0/generic_neuron_iaf_cell" postCellId="../AVAR/0/generic_neuron_iaf_cell" weight="5.0" delay="0ms"/>
         </projection>
-        <projection id="NC_AVAL_DB5_FMRFamide" presynapticPopulation="AVAL" postsynapticPopulation="DB5" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../AVAL/0/generic_neuron_iaf_cell" postCellId="../DB5/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
-        </projection>
         <projection id="NC_AVAL_RIMR_Generic_GJ" presynapticPopulation="AVAL" postsynapticPopulation="RIMR" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../AVAL/0/generic_neuron_iaf_cell" postCellId="../RIMR/0/generic_neuron_iaf_cell" weight="3.0" delay="0ms"/>
         </projection>
@@ -415,12 +294,6 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_AVAR_DB3_FMRFamide" presynapticPopulation="AVAR" postsynapticPopulation="DB3" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../AVAR/0/generic_neuron_iaf_cell" postCellId="../DB3/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_AVAR_DB5_FMRFamide" presynapticPopulation="AVAR" postsynapticPopulation="DB5" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../AVAR/0/generic_neuron_iaf_cell" postCellId="../DB5/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_AVAR_DB5_Generic_GJ" presynapticPopulation="AVAR" postsynapticPopulation="DB5" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../AVAR/0/generic_neuron_iaf_cell" postCellId="../DB5/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
         </projection>
         <projection id="NC_AVAR_RIML_Generic_GJ" presynapticPopulation="AVAR" postsynapticPopulation="RIML" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../AVAR/0/generic_neuron_iaf_cell" postCellId="../RIML/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
@@ -446,59 +319,17 @@ Parameters and setting used to generate this network:
         <projection id="NC_AWCR_AWCL_Glutamate" presynapticPopulation="AWCR" postsynapticPopulation="AWCL" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../AWCR/0/generic_neuron_iaf_cell" postCellId="../AWCL/0/generic_neuron_iaf_cell" weight="5.0" delay="0ms"/>
         </projection>
-        <projection id="NC_DB1_AIBR_Generic_GJ" presynapticPopulation="DB1" postsynapticPopulation="AIBR" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB1/0/generic_neuron_iaf_cell" postCellId="../AIBR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB1_DB2_Generic_GJ" presynapticPopulation="DB1" postsynapticPopulation="DB2" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB1/0/generic_neuron_iaf_cell" postCellId="../DB2/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB1_DB4_Generic_GJ" presynapticPopulation="DB1" postsynapticPopulation="DB4" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB1/0/generic_neuron_iaf_cell" postCellId="../DB4/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB1_DD1_Acetylcholine" presynapticPopulation="DB1" postsynapticPopulation="DD1" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../DB1/0/generic_neuron_iaf_cell" postCellId="../DD1/0/generic_neuron_iaf_cell" weight="10.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB1_VB3_Generic_GJ" presynapticPopulation="DB1" postsynapticPopulation="VB3" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB1/0/generic_neuron_iaf_cell" postCellId="../VB3/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB1_VB4_Generic_GJ" presynapticPopulation="DB1" postsynapticPopulation="VB4" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB1/0/generic_neuron_iaf_cell" postCellId="../VB4/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB1_VD1_Acetylcholine" presynapticPopulation="DB1" postsynapticPopulation="VD1" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../DB1/0/generic_neuron_iaf_cell" postCellId="../VD1/0/generic_neuron_iaf_cell" weight="21.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB1_VD2_Acetylcholine" presynapticPopulation="DB1" postsynapticPopulation="VD2" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../DB1/0/generic_neuron_iaf_cell" postCellId="../VD2/0/generic_neuron_iaf_cell" weight="15.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB1_VD3_Acetylcholine" presynapticPopulation="DB1" postsynapticPopulation="VD3" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../DB1/0/generic_neuron_iaf_cell" postCellId="../VD3/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB2_DB1_Generic_GJ" presynapticPopulation="DB2" postsynapticPopulation="DB1" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB2/0/generic_neuron_iaf_cell" postCellId="../DB1/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
         <projection id="NC_DB2_DB3_Generic_GJ" presynapticPopulation="DB2" postsynapticPopulation="DB3" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../DB2/0/generic_neuron_iaf_cell" postCellId="../DB3/0/generic_neuron_iaf_cell" weight="6.0" delay="0ms"/>
         </projection>
         <projection id="NC_DB2_DD2_Acetylcholine" presynapticPopulation="DB2" postsynapticPopulation="DD2" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../DB2/0/generic_neuron_iaf_cell" postCellId="../DD2/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
         </projection>
-        <projection id="NC_DB2_VB1_Generic_GJ" presynapticPopulation="DB2" postsynapticPopulation="VB1" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB2/0/generic_neuron_iaf_cell" postCellId="../VB1/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
-        </projection>
         <projection id="NC_DB2_VD3_Acetylcholine" presynapticPopulation="DB2" postsynapticPopulation="VD3" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../DB2/0/generic_neuron_iaf_cell" postCellId="../VD3/0/generic_neuron_iaf_cell" weight="23.0" delay="0ms"/>
         </projection>
-        <projection id="NC_DB2_VD4_Acetylcholine" presynapticPopulation="DB2" postsynapticPopulation="VD4" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../DB2/0/generic_neuron_iaf_cell" postCellId="../VD4/0/generic_neuron_iaf_cell" weight="14.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB2_VD5_Acetylcholine" presynapticPopulation="DB2" postsynapticPopulation="VD5" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../DB2/0/generic_neuron_iaf_cell" postCellId="../VD5/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
         <projection id="NC_DB3_DB2_Generic_GJ" presynapticPopulation="DB3" postsynapticPopulation="DB2" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../DB3/0/generic_neuron_iaf_cell" postCellId="../DB2/0/generic_neuron_iaf_cell" weight="6.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB3_DB4_Generic_GJ" presynapticPopulation="DB3" postsynapticPopulation="DB4" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB3/0/generic_neuron_iaf_cell" postCellId="../DB4/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
         </projection>
         <projection id="NC_DB3_DD2_Acetylcholine" presynapticPopulation="DB3" postsynapticPopulation="DD2" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../DB3/0/generic_neuron_iaf_cell" postCellId="../DD2/0/generic_neuron_iaf_cell" weight="4.0" delay="0ms"/>
@@ -506,86 +337,17 @@ Parameters and setting used to generate this network:
         <projection id="NC_DB3_DD3_Acetylcholine" presynapticPopulation="DB3" postsynapticPopulation="DD3" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../DB3/0/generic_neuron_iaf_cell" postCellId="../DD3/0/generic_neuron_iaf_cell" weight="10.0" delay="0ms"/>
         </projection>
-        <projection id="NC_DB3_VD4_Acetylcholine" presynapticPopulation="DB3" postsynapticPopulation="VD4" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../DB3/0/generic_neuron_iaf_cell" postCellId="../VD4/0/generic_neuron_iaf_cell" weight="9.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB3_VD5_Acetylcholine" presynapticPopulation="DB3" postsynapticPopulation="VD5" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../DB3/0/generic_neuron_iaf_cell" postCellId="../VD5/0/generic_neuron_iaf_cell" weight="26.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB4_DB1_Generic_GJ" presynapticPopulation="DB4" postsynapticPopulation="DB1" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB4/0/generic_neuron_iaf_cell" postCellId="../DB1/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB4_DB3_Generic_GJ" presynapticPopulation="DB4" postsynapticPopulation="DB3" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB4/0/generic_neuron_iaf_cell" postCellId="../DB3/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB4_DD3_Acetylcholine" presynapticPopulation="DB4" postsynapticPopulation="DD3" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../DB4/0/generic_neuron_iaf_cell" postCellId="../DD3/0/generic_neuron_iaf_cell" weight="3.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB4_VB2_Generic_GJ" presynapticPopulation="DB4" postsynapticPopulation="VB2" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB4/0/generic_neuron_iaf_cell" postCellId="../VB2/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB4_VB4_Generic_GJ" presynapticPopulation="DB4" postsynapticPopulation="VB4" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB4/0/generic_neuron_iaf_cell" postCellId="../VB4/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DB5_AVAR_Generic_GJ" presynapticPopulation="DB5" postsynapticPopulation="AVAR" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DB5/0/generic_neuron_iaf_cell" postCellId="../AVAR/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DD1_DD2_Generic_GJ" presynapticPopulation="DD1" postsynapticPopulation="DD2" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DD1/0/generic_neuron_iaf_cell" postCellId="../DD2/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DD1_VD1_Generic_GJ" presynapticPopulation="DD1" postsynapticPopulation="VD1" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DD1/0/generic_neuron_iaf_cell" postCellId="../VD1/0/generic_neuron_iaf_cell" weight="4.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DD1_VD2_GABA" presynapticPopulation="DD1" postsynapticPopulation="VD2" synapse="neuron_to_neuron_inh_syn">
-            <connectionWD id="0" preCellId="../DD1/0/generic_neuron_iaf_cell" postCellId="../VD2/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DD1_VD2_Generic_GJ" presynapticPopulation="DD1" postsynapticPopulation="VD2" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DD1/0/generic_neuron_iaf_cell" postCellId="../VD2/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DD2_DD1_Generic_GJ" presynapticPopulation="DD2" postsynapticPopulation="DD1" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DD2/0/generic_neuron_iaf_cell" postCellId="../DD1/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
         <projection id="NC_DD2_DD3_Generic_GJ" presynapticPopulation="DD2" postsynapticPopulation="DD3" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../DD2/0/generic_neuron_iaf_cell" postCellId="../DD3/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
         </projection>
         <projection id="NC_DD2_VD3_GABA" presynapticPopulation="DD2" postsynapticPopulation="VD3" synapse="neuron_to_neuron_inh_syn">
             <connectionWD id="0" preCellId="../DD2/0/generic_neuron_iaf_cell" postCellId="../VD3/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
         </projection>
-        <projection id="NC_DD2_VD4_GABA" presynapticPopulation="DD2" postsynapticPopulation="VD4" synapse="neuron_to_neuron_inh_syn">
-            <connectionWD id="0" preCellId="../DD2/0/generic_neuron_iaf_cell" postCellId="../VD4/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DD2_VD4_Generic_GJ" presynapticPopulation="DD2" postsynapticPopulation="VD4" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DD2/0/generic_neuron_iaf_cell" postCellId="../VD4/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
-        </projection>
         <projection id="NC_DD3_DD2_Generic_GJ" presynapticPopulation="DD3" postsynapticPopulation="DD2" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../DD3/0/generic_neuron_iaf_cell" postCellId="../DD2/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
         </projection>
-        <projection id="NC_DD3_DD4_Generic_GJ" presynapticPopulation="DD3" postsynapticPopulation="DD4" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DD3/0/generic_neuron_iaf_cell" postCellId="../DD4/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_DD4_DD3_Generic_GJ" presynapticPopulation="DD4" postsynapticPopulation="DD3" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../DD4/0/generic_neuron_iaf_cell" postCellId="../DD3/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD1_DD1_GABA" presynapticPopulation="VD1" postsynapticPopulation="DD1" synapse="neuron_to_neuron_inh_syn">
-            <connectionWD id="0" preCellId="../VD1/0/generic_neuron_iaf_cell" postCellId="../DD1/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD1_DD1_Generic_GJ" presynapticPopulation="VD1" postsynapticPopulation="DD1" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VD1/0/generic_neuron_iaf_cell" postCellId="../DD1/0/generic_neuron_iaf_cell" weight="4.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD1_VD2_Generic_GJ" presynapticPopulation="VD1" postsynapticPopulation="VD2" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VD1/0/generic_neuron_iaf_cell" postCellId="../VD2/0/generic_neuron_iaf_cell" weight="7.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD2_DD1_GABA" presynapticPopulation="VD2" postsynapticPopulation="DD1" synapse="neuron_to_neuron_inh_syn">
-            <connectionWD id="0" preCellId="../VD2/0/generic_neuron_iaf_cell" postCellId="../DD1/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD2_DD1_Generic_GJ" presynapticPopulation="VD2" postsynapticPopulation="DD1" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VD2/0/generic_neuron_iaf_cell" postCellId="../DD1/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
-        </projection>
         <projection id="NC_VD2_VB2_GABA" presynapticPopulation="VD2" postsynapticPopulation="VB2" synapse="neuron_to_neuron_inh_syn">
             <connectionWD id="0" preCellId="../VD2/0/generic_neuron_iaf_cell" postCellId="../VB2/0/generic_neuron_iaf_cell" weight="3.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD2_VD1_Generic_GJ" presynapticPopulation="VD2" postsynapticPopulation="VD1" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VD2/0/generic_neuron_iaf_cell" postCellId="../VD1/0/generic_neuron_iaf_cell" weight="7.0" delay="0ms"/>
         </projection>
         <projection id="NC_VD2_VD3_Generic_GJ" presynapticPopulation="VD2" postsynapticPopulation="VD3" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../VD2/0/generic_neuron_iaf_cell" postCellId="../VD3/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
@@ -595,27 +357,6 @@ Parameters and setting used to generate this network:
         </projection>
         <projection id="NC_VD3_VD2_Generic_GJ" presynapticPopulation="VD3" postsynapticPopulation="VD2" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../VD3/0/generic_neuron_iaf_cell" postCellId="../VD2/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD3_VD4_Generic_GJ" presynapticPopulation="VD3" postsynapticPopulation="VD4" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VD3/0/generic_neuron_iaf_cell" postCellId="../VD4/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD4_DD2_Generic_GJ" presynapticPopulation="VD4" postsynapticPopulation="DD2" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VD4/0/generic_neuron_iaf_cell" postCellId="../DD2/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD4_VD3_Generic_GJ" presynapticPopulation="VD4" postsynapticPopulation="VD3" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VD4/0/generic_neuron_iaf_cell" postCellId="../VD3/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD4_VD5_Generic_GJ" presynapticPopulation="VD4" postsynapticPopulation="VD5" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VD4/0/generic_neuron_iaf_cell" postCellId="../VD5/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD5_AVAR_GABA" presynapticPopulation="VD5" postsynapticPopulation="AVAR" synapse="neuron_to_neuron_inh_syn">
-            <connectionWD id="0" preCellId="../VD5/0/generic_neuron_iaf_cell" postCellId="../AVAR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD5_VB4_GABA" presynapticPopulation="VD5" postsynapticPopulation="VB4" synapse="neuron_to_neuron_inh_syn">
-            <connectionWD id="0" preCellId="../VD5/0/generic_neuron_iaf_cell" postCellId="../VB4/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VD5_VD4_Generic_GJ" presynapticPopulation="VD5" postsynapticPopulation="VD4" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VD5/0/generic_neuron_iaf_cell" postCellId="../VD4/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
         </projection>
         <projection id="NC_RIML_AIBR_Generic_GJ" presynapticPopulation="RIML" postsynapticPopulation="AIBR" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../RIML/0/generic_neuron_iaf_cell" postCellId="../AIBR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
@@ -641,44 +382,11 @@ Parameters and setting used to generate this network:
         <projection id="NC_RIMR_AVAR_Generic_GJ" presynapticPopulation="RIMR" postsynapticPopulation="AVAR" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../RIMR/0/generic_neuron_iaf_cell" postCellId="../AVAR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
         </projection>
-        <projection id="NC_VB1_AIBR_Acetylcholine" presynapticPopulation="VB1" postsynapticPopulation="AIBR" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../VB1/0/generic_neuron_iaf_cell" postCellId="../AIBR/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB1_DB2_Generic_GJ" presynapticPopulation="VB1" postsynapticPopulation="DB2" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VB1/0/generic_neuron_iaf_cell" postCellId="../DB2/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB1_DD1_Acetylcholine" presynapticPopulation="VB1" postsynapticPopulation="DD1" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../VB1/0/generic_neuron_iaf_cell" postCellId="../DD1/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB1_RIML_Acetylcholine" presynapticPopulation="VB1" postsynapticPopulation="RIML" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../VB1/0/generic_neuron_iaf_cell" postCellId="../RIML/0/generic_neuron_iaf_cell" weight="2.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB1_VB2_Generic_GJ" presynapticPopulation="VB1" postsynapticPopulation="VB2" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VB1/0/generic_neuron_iaf_cell" postCellId="../VB2/0/generic_neuron_iaf_cell" weight="4.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB1_VD1_Acetylcholine" presynapticPopulation="VB1" postsynapticPopulation="VD1" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../VB1/0/generic_neuron_iaf_cell" postCellId="../VD1/0/generic_neuron_iaf_cell" weight="3.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB1_VD2_Acetylcholine" presynapticPopulation="VB1" postsynapticPopulation="VD2" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../VB1/0/generic_neuron_iaf_cell" postCellId="../VD2/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB2_DB4_Generic_GJ" presynapticPopulation="VB2" postsynapticPopulation="DB4" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VB2/0/generic_neuron_iaf_cell" postCellId="../DB4/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB2_DD1_Acetylcholine" presynapticPopulation="VB2" postsynapticPopulation="DD1" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../VB2/0/generic_neuron_iaf_cell" postCellId="../DD1/0/generic_neuron_iaf_cell" weight="20.0" delay="0ms"/>
-        </projection>
         <projection id="NC_VB2_DD2_Acetylcholine" presynapticPopulation="VB2" postsynapticPopulation="DD2" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../VB2/0/generic_neuron_iaf_cell" postCellId="../DD2/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
         </projection>
-        <projection id="NC_VB2_VB1_Generic_GJ" presynapticPopulation="VB2" postsynapticPopulation="VB1" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VB2/0/generic_neuron_iaf_cell" postCellId="../VB1/0/generic_neuron_iaf_cell" weight="4.0" delay="0ms"/>
-        </projection>
         <projection id="NC_VB2_VB3_Generic_GJ" presynapticPopulation="VB2" postsynapticPopulation="VB3" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../VB2/0/generic_neuron_iaf_cell" postCellId="../VB3/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB2_VB5_Generic_GJ" presynapticPopulation="VB2" postsynapticPopulation="VB5" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VB2/0/generic_neuron_iaf_cell" postCellId="../VB5/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
         </projection>
         <projection id="NC_VB2_VD2_Acetylcholine" presynapticPopulation="VB2" postsynapticPopulation="VD2" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../VB2/0/generic_neuron_iaf_cell" postCellId="../VD2/0/generic_neuron_iaf_cell" weight="9.0" delay="0ms"/>
@@ -686,38 +394,11 @@ Parameters and setting used to generate this network:
         <projection id="NC_VB2_VD3_Acetylcholine" presynapticPopulation="VB2" postsynapticPopulation="VD3" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../VB2/0/generic_neuron_iaf_cell" postCellId="../VD3/0/generic_neuron_iaf_cell" weight="3.0" delay="0ms"/>
         </projection>
-        <projection id="NC_VB3_DB1_Generic_GJ" presynapticPopulation="VB3" postsynapticPopulation="DB1" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VB3/0/generic_neuron_iaf_cell" postCellId="../DB1/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
         <projection id="NC_VB3_DD2_Acetylcholine" presynapticPopulation="VB3" postsynapticPopulation="DD2" synapse="neuron_to_neuron_exc_syn">
             <connectionWD id="0" preCellId="../VB3/0/generic_neuron_iaf_cell" postCellId="../DD2/0/generic_neuron_iaf_cell" weight="37.0" delay="0ms"/>
         </projection>
         <projection id="NC_VB3_VB2_Generic_GJ" presynapticPopulation="VB3" postsynapticPopulation="VB2" synapse="neuron_to_neuron_elec_syn">
             <connectionWD id="0" preCellId="../VB3/0/generic_neuron_iaf_cell" postCellId="../VB2/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB4_DB1_Generic_GJ" presynapticPopulation="VB4" postsynapticPopulation="DB1" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VB4/0/generic_neuron_iaf_cell" postCellId="../DB1/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB4_DB4_Generic_GJ" presynapticPopulation="VB4" postsynapticPopulation="DB4" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VB4/0/generic_neuron_iaf_cell" postCellId="../DB4/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB4_DD2_Acetylcholine" presynapticPopulation="VB4" postsynapticPopulation="DD2" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../VB4/0/generic_neuron_iaf_cell" postCellId="../DD2/0/generic_neuron_iaf_cell" weight="6.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB4_DD3_Acetylcholine" presynapticPopulation="VB4" postsynapticPopulation="DD3" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../VB4/0/generic_neuron_iaf_cell" postCellId="../DD3/0/generic_neuron_iaf_cell" weight="16.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB4_VB5_Generic_GJ" presynapticPopulation="VB4" postsynapticPopulation="VB5" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VB4/0/generic_neuron_iaf_cell" postCellId="../VB5/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB5_DD3_Acetylcholine" presynapticPopulation="VB5" postsynapticPopulation="DD3" synapse="neuron_to_neuron_exc_syn">
-            <connectionWD id="0" preCellId="../VB5/0/generic_neuron_iaf_cell" postCellId="../DD3/0/generic_neuron_iaf_cell" weight="27.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB5_VB2_Generic_GJ" presynapticPopulation="VB5" postsynapticPopulation="VB2" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VB5/0/generic_neuron_iaf_cell" postCellId="../VB2/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
-        </projection>
-        <projection id="NC_VB5_VB4_Generic_GJ" presynapticPopulation="VB5" postsynapticPopulation="VB4" synapse="neuron_to_neuron_elec_syn">
-            <connectionWD id="0" preCellId="../VB5/0/generic_neuron_iaf_cell" postCellId="../VB4/0/generic_neuron_iaf_cell" weight="1.0" delay="0ms"/>
         </projection>
         <inputList id="Input_ASHL_stim_ASHL_1" population="ASHL" component="stim_ASHL_1">
             <input id="0" target="../ASHL/0/generic_neuron_iaf_cell" destination="synapses"/>
