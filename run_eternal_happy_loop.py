@@ -7,6 +7,7 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+from typing import Optional
 
 
 def parse_args() -> argparse.Namespace:
@@ -81,11 +82,11 @@ class Runner:
         print(f"[INFO] Running jNeuroML: {self.lems_file}")
         self._run_with_timeout(["pynml", self.lems_file], cwd=self.examples_dir)
 
-    def _run_checked(self, cmd, cwd: Path | None = None) -> None:
+    def _run_checked(self, cmd, cwd: Optional[Path] = None) -> None:
         print(f"[CMD] {' '.join(map(str, cmd))}")
         subprocess.run(cmd, cwd=str(cwd) if cwd else None, check=True)
 
-    def _run_with_timeout(self, cmd, cwd: Path | None = None) -> None:
+    def _run_with_timeout(self, cmd, cwd: Optional[Path] = None) -> None:
         print(f"[CMD:timeout] {' '.join(map(str, cmd))}")
         # Start in a new process group for clean SIGINT forwarding
         proc = subprocess.Popen(
