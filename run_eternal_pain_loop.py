@@ -12,10 +12,10 @@ from typing import Optional
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Run Eternal Pain simulation in a loop, each capped at 60s, with optional plotting.",
+        description="Run Eternal Pain simulation in a loop, each capped at 60s (default), with optional plotting.",
     )
     parser.add_argument("param_set", nargs="?", default="A", help="Parameter set (e.g., A, B, C)")
-    parser.add_argument("pain_delay_ms", nargs="?", type=int, default=2000, help="Pain injection delay in ms")
+    parser.add_argument("pain_delay_ms", nargs="?", type=int, default=500, help="Pain injection delay in ms (default: 500)")
     parser.add_argument(
         "backend",
         nargs="?",
@@ -26,8 +26,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--timeout",
         type=int,
-        default=30,
-        help="Per-run timeout in seconds (default: 30)",
+        default=60,
+        help="Per-run timeout in seconds (default: 60)",
     )
     parser.add_argument(
         "--gui",
@@ -202,7 +202,7 @@ def main() -> None:
     print(f"[INFO] Using PARAM_SET={runner.param_set}, PAIN_DELAY_MS={runner.pain_delay_ms}, BACKEND={runner.backend}")
     runner.ensure_generated()
 
-    print("[INFO] Starting loop. Each run capped at 60s. Press Ctrl+C to stop.")
+    print(f"[INFO] Starting loop. Each run capped at {runner.timeout_s}s. Press Ctrl+C to stop.")
     while True:
         start_ts = time.strftime("%Y-%m-%dT%H:%M:%S")
         print(f"[RUN] {start_ts}")

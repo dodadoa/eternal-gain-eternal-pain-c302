@@ -28,7 +28,7 @@ def setup(
     param_overrides={},
     config_param_overrides={},
     verbose=True,
-    pain_start_delay=2000,  # Delay before pain injection (ms) - allows baseline measurement
+    pain_start_delay=500,  # Delay before pain injection (ms) - early pain injection
 ):
     ParameterisedModel = getattr(
         importlib.import_module("c302.parameters_%s" % parameter_set),
@@ -152,7 +152,7 @@ def setup(
 
 if __name__ == "__main__":
     parameter_set = sys.argv[1] if len(sys.argv) == 2 else "A"
-    pain_delay = int(sys.argv[2]) if len(sys.argv) >= 3 else 2000  # Default 2000ms delay
+    pain_delay = int(sys.argv[2]) if len(sys.argv) >= 3 else 500  # Default 500ms delay (early pain)
 
     setup(parameter_set, generate=True, pain_start_delay=pain_delay)
 
