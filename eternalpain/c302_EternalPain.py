@@ -1,7 +1,7 @@
-# Model of pain induction in C. elegans worm with motor neuron monitoring
+# Model of pain induction in C. elegans worm with crucial motor neuron monitoring
 # This simulation induces persistent pain by stimulating nociceptive neurons (ASH)
 # after a delay to capture motor neuron activity before and after pain injection
-# Motor neurons included: VB (forward), VD/DD (backward/reversal)
+# Crucial motor neurons included for observation and plotting: VB2/VB3, VD2/VD3, DD2/DD3, DB2/DB3
 
 # To run:
 #          python c302_EternalPainWithMotors.py A   (uses parameters_A, requires jNeuroML to run)
@@ -43,16 +43,17 @@ def setup(
     # - RIM: Layer 2 interneurons (modulatory, secrete tyramine)
     # - AVA: Command interneurons (output to motor neurons for reversals)
     
-    # Add motor neurons to monitor behavioral output:
-    # - VB: Forward locomotion motor neurons
-    # - VD: Backward/reversal motor neurons (GABAergic)
-    # - DD: Backward/reversal motor neurons (GABAergic)
-    # - DB: Additional forward motor neurons
+    # Add crucial motor neurons to monitor behavioral output:
+    # - VB: Forward locomotion motor neurons (crucial: VB2, VB3)
+    # - VD: Backward/reversal motor neurons (crucial: VD2, VD3)
+    # - DD: Backward/reversal motor neurons (GABAergic) (crucial: DD2, DD3)
+    # - DB: Additional forward motor neurons (crucial: DB2, DB3)
     pain_circuit_cells = ["ASHL", "ASHR", "AWCL", "AWCR", "AIBL", "AIBR", "RIML", "RIMR", "AVAL", "AVAR"]
-    motor_cells = ["VB1", "VB2", "VB3", "VB4", "VB5",  # Forward motor neurons
-                   "VD1", "VD2", "VD3", "VD4", "VD5",  # Backward/reversal motor neurons
-                   "DD1", "DD2", "DD3", "DD4", "DD5",  # Backward/reversal motor neurons (GABAergic)
-                   "DB1", "DB2", "DB3", "DB4", "DB5"]  # Additional forward motor neurons
+    # Only include crucial motor cells for observation and plotting
+    motor_cells = ["VB2", "VB3",  # Forward locomotion (crucial representatives)
+                   "VD2", "VD3",  # Backward/reversal (crucial representatives)
+                   "DD2", "DD3",  # Backward/reversal GABAergic (crucial representatives)
+                   "DB2", "DB3"]  # Additional forward (crucial representatives)
     
     cells = pain_circuit_cells + motor_cells
     cells_to_stimulate = []
@@ -133,9 +134,9 @@ def setup(
         c302.print_("  - AVAL/AVAR (command interneurons): 8pA for %s starting at %s" 
                     % (pain_duration, pain_start))
         c302.print_("=" * 70)
-        c302.print_("Motor neurons included for monitoring:")
-        c302.print_("  - Forward locomotion: VB1-VB5, DB1-DB5")
-        c302.print_("  - Backward/reversal: VD1-VD5, DD1-DD5")
+        c302.print_("Crucial motor neurons included for monitoring and plotting:")
+        c302.print_("  - Forward locomotion: VB2, VB3, DB2, DB3")
+        c302.print_("  - Backward/reversal: VD2, VD3, DD2, DD3")
         c302.print_("=" * 70)
         c302.print_("TIMELINE:")
         c302.print_("  - 0ms to %sms: BASELINE (no pain - observe normal motor activity)" % pain_start_delay)
