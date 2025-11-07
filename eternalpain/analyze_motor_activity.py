@@ -99,19 +99,24 @@ def analyze_motor_activity(data, pain_start_ms, duration_ms=10000):
         forward_motors = [col for col in data.columns if col.startswith('VB') or col.startswith('DB')]
         backward_motors = [col for col in data.columns if col.startswith('VD') or col.startswith('DD')]
     
+    # Filter to only crucial motor cells for plotting: VB2, VB3, VD2, VD3, DD2, DD3, DB2, DB3
+    crucial_cells = ['VB2', 'VB3', 'VD2', 'VD3', 'DD2', 'DD3', 'DB2', 'DB3']
+    forward_motors = [col for col in forward_motors if any(cell in col for cell in ['VB2', 'VB3', 'DB2', 'DB3'])]
+    backward_motors = [col for col in backward_motors if any(cell in col for cell in ['VD2', 'VD3', 'DD2', 'DD3'])]
+    
     # Also check for pattern like 'col5', 'col6' if columns are numbered
     if not forward_motors and not backward_motors:
         # Check if we have numbered columns - need to check LEMS file for actual names
         print("Note: Columns appear to be numbered. Checking LEMS file for neuron names...")
         # This will be handled by the LEMS file parsing above
     
-    print(f"Found {len(forward_motors)} forward motor neurons")
+    print(f"Found {len(forward_motors)} crucial forward motor neurons (filtered to VB2, VB3, DB2, DB3)")
     if forward_motors:
-        print(f"  Forward motors: {forward_motors[:5]}{'...' if len(forward_motors) > 5 else ''}")
+        print(f"  Forward motors: {forward_motors}")
     
-    print(f"Found {len(backward_motors)} backward motor neurons")
+    print(f"Found {len(backward_motors)} crucial backward motor neurons (filtered to VD2, VD3, DD2, DD3)")
     if backward_motors:
-        print(f"  Backward motors: {backward_motors[:5]}{'...' if len(backward_motors) > 5 else ''}")
+        print(f"  Backward motors: {backward_motors}")
     
     if not forward_motors and not backward_motors:
         print("\n⚠️  WARNING: No motor neurons found in data!")
@@ -168,10 +173,10 @@ def analyze_motor_activity(data, pain_start_ms, duration_ms=10000):
 def print_analysis(results):
     """Print analysis results."""
     print("\n" + "=" * 70)
-    print("MOTOR NEURON ACTIVITY ANALYSIS")
+    print("CRUCIAL MOTOR NEURON ACTIVITY ANALYSIS")
     print("=" * 70)
     print(f"\nPain injection time: {results['pain_start_ms']} ms")
-    print("\n--- FORWARD MOTOR NEURONS (VB, DB) ---")
+    print("\n--- FORWARD MOTOR NEURONS (VB2, VB3, DB2, DB3) ---")
     print(f"Before pain:  Mean = {results['forward_before_mean']:.4f}, Std = {results['forward_before_std']:.4f}")
     print(f"After pain:   Mean = {results['forward_after_mean']:.4f}, Std = {results['forward_after_std']:.4f}")
     
@@ -179,7 +184,7 @@ def print_analysis(results):
     forward_pct = (forward_change / results['forward_before_mean'] * 100) if results['forward_before_mean'] != 0 else 0
     print(f"Change:       {forward_change:+.4f} ({forward_pct:+.2f}%)")
     
-    print("\n--- BACKWARD/REVERSAL MOTOR NEURONS (VD, DD) ---")
+    print("\n--- BACKWARD/REVERSAL MOTOR NEURONS (VD2, VD3, DD2, DD3) ---")
     print(f"Before pain:  Mean = {results['backward_before_mean']:.4f}, Std = {results['backward_before_std']:.4f}")
     print(f"After pain:   Mean = {results['backward_after_mean']:.4f}, Std = {results['backward_after_std']:.4f}")
     
@@ -207,8 +212,8 @@ def plot_activity(results, output_file=None):
     times = results['times']
     pain_start = results['pain_start_ms']
     
-    # Plot forward motor activity
-    ax1.plot(times, results['forward_activity'], 'g-', label='Forward motors (VB, DB)', linewidth=1.5)
+    # Plot forward motor activity (crucial cells only: VB2, VB3, DB2, DB3)
+    ax1.plot(times, results['forward_activity'], 'g-', label='Forward motors (VB2, VB3, DB2, DB3)', linewidth=1.5)
     ax1.axvline(pain_start, color='r', linestyle='--', linewidth=2, label=f'Pain injection ({pain_start} ms)')
     ax1.axhline(results['forward_before_mean'], color='g', linestyle=':', alpha=0.5, label='Before mean')
     ax1.axhline(results['forward_after_mean'], color='g', linestyle='--', alpha=0.5, label='After mean')
@@ -221,12 +226,12 @@ def plot_activity(results, output_file=None):
                      results['forward_after_mean'] + results['forward_after_std'],
                      where=times >= pain_start, alpha=0.2, color='g')
     ax1.set_ylabel('Forward Motor Activity', fontsize=12)
-    ax1.set_title('Motor Neuron Activity Before and After Pain Injection', fontsize=14)
+    ax1.set_title('Crucial Motor Neuron Activity Before and After Pain Injection', fontsize=14)
     ax1.legend()
     ax1.grid(True, alpha=0.3)
     
-    # Plot backward motor activity
-    ax2.plot(times, results['backward_activity'], 'r-', label='Backward/reversal motors (VD, DD)', linewidth=1.5)
+    # Plot backward motor activity (crucial cells only: VD2, VD3, DD2, DD3)
+    ax2.plot(times, results['backward_activity'], 'r-', label='Backward/reversal motors (VD2, VD3, DD2, DD3)', linewidth=1.5)
     ax2.axvline(pain_start, color='r', linestyle='--', linewidth=2, label=f'Pain injection ({pain_start} ms)')
     ax2.axhline(results['backward_before_mean'], color='r', linestyle=':', alpha=0.5, label='Before mean')
     ax2.axhline(results['backward_after_mean'], color='r', linestyle='--', alpha=0.5, label='After mean')
